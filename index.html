@@ -2,450 +2,438 @@
 <html>
     <head>
         <title>Trevor Masinelli: The HTML-Me-Something Project, LC101-STLCC2016(Fall)</title>
-        <link rel="stylesheet" type="text/css" href="norm.css">
         <link rel="stylesheet" type="text/css" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Open+Sans+Condensed:300" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:700|Raleway:300" rel="stylesheet">
     </head>
     <body>
-        <header>
-            <a name="top"></a>
-            <h1>Pyahtzee! My First Functional Python Program</h1>
-            <h3>by Trevor Masinelli &mdash; The HTML-Me-Something Project, LC101-STLCC2016(Fall)</h3>
-            <nav>
-				<ul>
-					<li><a href="#intro">Introduction</a></li>
-                    <li><a href="#basics">Gameplay Basics</a></li>
-                    <li><a href="#core">Core Functionality</a></li>
-                    <li><a href="#gameplay">Gameplay &amp; Interface Enhancements</a></li>
-                    <li><a href="#robots">Creating a Computer Opponent</a></li>
-                    <li><a href="#tweaks">Tweaking the Theory</a></li>
-                    <li><a href="#conclusion">Conclusion</a></li>
-                    <li><a href="#screens">Screenshots</a></li>
-				</ul>
-			</nav>
-        </header>
-        <main>
-             <article id="chapter">
-                 <a name="intro"></a>
-                 <section id="heading">
-                     <h4>Introduction</h4>
-                     <h5>a.k.a. &ldquo;What I did over Winter Break&rdquo;</h5>
+        <a name="top"></a>
+        <section id="wrapper">
+            <header id="headerwrap">
+                <h1>Pyahtzee! My First Python Program</h1>
+                <h3>The <em>HTML-Me-Something</em> Project, LC101-STLCC2016(Fall)</h3>
+                <nav id="navigation">
+    				<ul>
+    					<li><a href="#intro">Introduction</a></li>
+                        <li><a href="#basics">Gameplay Basics</a></li>
+                        <li><a href="#core">Core Functionality</a></li>
+                        <li><a href="#enhancements">Gameplay &amp; Interface Enhancements</a></li>
+                        <li><a href="#robots">Creating a Computer Opponent</a></li>
+                        <li><a href="#tweaks">Tweaking the Theory</a></li>
+                        <li><a href="#conclusion">Conclusion</a></li>
+                        <li><a href="#screens">Screenshots</a></li>
+    				</ul>
+    			</nav>
+            </header>
+            <main id="contentwrap">
+                 <article id="content">
+                     <a name="intro"></a>
+                     <section id="heading">
+                         <h4>Introduction</h4>
+                         <h5>a.k.a. &ldquo;What I did over Winter Break&rdquo;</h5>
+                     </section>
+                     <section id="image">
+                         <figure>
+                             <a target="_blank" href="images/pyahtzee_yahtzee.jpg">
+                                 <img src ="images/pyahtzee_yahtzee.jpg" alt="the Deluxe Edition Yahtzee game" height="200" width="300" />
+                             </a>
+                             <figcaption>
+                                 Deluxe Edition Yahtzee, by Milton Bradley <br />
+                                 <a target="_blank" href="images/pyahtzee_yahtzee.jpg"><em>(click to enlarge)</em></a>
+                             </figcaption>
+                         </figure>
+                     </section>
+                     <section id="body">
+                         <p>
+                             Over the winter break from classes, I wanted to make sure
+                             that my newly-learned Python skills didn't begin to fade.
+                             I started looking for a project that I could work on,
+                             outside of testing my abilities with code snippets on the
+                             <a target="_blank" href="http://www.hackerrank.com">HackerRank</a>
+                            website. While HackerRank was definitely keeping my skills honed,
+                            I wanted something with more cohesion and complexity. I
+                            needed to see if I could code something complete, from the ground
+                            up -- a useful coding project that I could work on, that
+                            could be complete &amp; functional within the given timeframe.
+                        </p>
+                        <p>
+                            To better understand the core functionality of Python, I only wanted to
+                            use an out-of-the-box install of Python (or as close to it as possible),
+                            without a lot of added external modules to cut corners. I wanted to use my
+                            new skills to create something complex, but not necesarily dive straight
+                            into the deep water and immediately start drowning. I was looking for
+                            a project or subject matter that was familiar and that I knew well;
+                            something that would alow me to focus on learning the language, not also
+                            learning about the subject matter of <em>what</em> the code was doing...
+                            and that's when I saw my Yahtzee box sitting on the shelf.
+                         </p>
+                         <a href="#top" id="backup"><em>back to top </em>&#8679;</a>
+                     </section>
+                 </article>
+                 <article id="content">
+                     <a name="basics"></a>
+                     <section id="heading">
+                         <h4>Gameplay Basics</h4>
+                         <h5>Or, How Does One Yahtzee?</h5>
+                     </section>
+                     <section id="image">
+                         <figure>
+                             <a target="_blank" href="images/pyahtzee_scorecard.jpg">
+                                 <img src ="images/pyahtzee_scorecard.jpg" alt="original 1956 Yahtzee scorecard" height="200" width="300" />
+                             </a>
+                             <figcaption>
+                                 An original 1956 Milton-Bradley Yahtzee scorecard<br />
+                                 <a target="_blank" href="images/pyahtzee_scorecard.jpg"><em>(click to enlarge)</em></a>
+                             </figcaption>
+                         </figure>
+                     </section>
+                     <section id="body">
+                         <p>
+                             I unboxed the game and played through several rounds,
+                             taking notes on gameplay, basic strategy, and any other
+                             information I felt would be pertinent to converting the
+                             physical game to a computerized version. I then did
+                             some research online regarding the game's history, various
+                             different versions over the years, numerous different
+                             styles of scorecards, dice, cups and playing boards. I
+                             also downloaded the most recent official rules for
+                             playing the game (which, I learned, are quite different from
+                             the rules I originally grew up playing).
+                         </p>
+                         <p>
+                             Once I had all the notes gathered, I began outlining the
+                             structure of how the program would function. I applied the same
+                             cyclical technique that I use for art, design and writing (as well
+                             as coding in BASIC, AppleScript, HTML, et al), which I often refer
+                             to as &ldquo;going Bob Ross&rdquo;; start as simple as possible, and then build,
+                             enhance and elaborate, cycling over the project again and again,
+                             continuing to make it better with each iteration.
+                         </p>
+                         <a href="#top" id="backup"><em>back to top </em>&#8679;</a>
+                     </section>
+                 </article>
+                 <article id="content">
+                     <a name="core"></a>
+                     <section id="heading">
+                         <h4>Core Functionality</h4>
+                         <h5>Build a Solid Foundation to Work On</h5>
+                     </section>
+                     <section id="image">
+                         <figure>
+                             <a target="_blank" href="images/pyahtzee_code01.jpg">
+                                 <img src ="images/pyahtzee_code01.jpg" alt="a snippet of Python code" height="200" width="300" />
+                             </a>
+                             <figcaption>
+                                 Initial functions created to roll and count dice<br />
+                                 <a target="_blank" href="images/pyahtzee_code01.jpg"><em>(click to enlarge)</em></a>
+                             </figcaption>
+                         </figure>
+                     </section>
+                     <section id="body">
+                         <p>
+                             Starting with the existing scoring structure, I created a
+                             basic one-roll game for one player; they were allowed
+                             one roll of all five dice, which would return a score
+                             for whatever might be available for the given dice.
+                             Once that was in place and functioning properly, I then
+                             extended the option to allow for multiple rolls of all
+                             of the dice. After that came the addition for re-rolling
+                             selected dice out of each roll, on the first and second
+                             throws, like the actual game. With success in creating
+                             that functionality also came the the task of adding the
+                             &ldquo;Joker Rules&rdquo; to the game, which only come into
+                             play if multiple Yahtzee's are rolled during a game, or if
+                             a Yahtzee is rolled after a player has already taken a zero
+                             score in the Yahtzee slot.
+                         </p>
+                         <p>
+                             With that core functionality in place, the entire game could
+                             be played, by one person -- from beginning to end -- while
+                             completely following the current Yahtzee rules and scoring
+                             system. I was then able able to easily replicate the process,
+                             extending the existing gameplay to four possible players at a
+                             time, and allowed each player to enter thier own name (as
+                             opposed to just being given a generic &ldquo;Player 1&rdquo;
+                             or &ldquo;Player 2&rdquo; moniker).
+                        </p>
+                        <a href="#top" id="backup"><em>back to top </em>&#8679;</a>
+                     </section>
+                 </article>
+                 <article id="content">
+                     <a name="enhancements"></a>
+                     <section id="heading">
+                         <h4>Gameplay &amp; Interface Enhancements</h4>
+                         <h5>Yay, it Works! Um... Now What?</h5>
+                     </section>
+                     <section id="image">
+                         <figure>
+                             <a target="_blank" href="images/pyahtzee_score-dice.jpg">
+                                 <img src ="images/pyahtzee_score-dice.jpg" alt="detail of ASCII dice design" height="200" width="300" />
+                             </a>
+                             <figcaption>
+                                 Detail of ASCII dice design, dice selection and scoring<br />
+                                 <a target="_blank" href="images/pyahtzee_score-dice.jpg"><em>(click to enlarge)</em></a>
+                             </figcaption>
+                         </figure>
+                     </section>
+                     <section id="body">
+                         <p>
+                             Once the gameplay was tested and bugs were removed, I
+                             realized that I really wanted to improve the interface.
+                             Initially, I felt somewhat hamstrung by the limitations
+                             of the Terminal, and the lack of graphical capabilities
+                             in a text-based format. However, I quickly realized that --
+                             by using ASCII symbols and some storytelling -- I could
+                             create an enjoyable player experience, with some
+                             minimalist visuals thrown in.
+                         </p>
+                         <p>
+                             After searching through the available ASCII characters and
+                             possible text formatting, I went through the game once
+                             more, step by step, to see where the experience could be
+                             enhanced. I created a splashscreen, a storyline that
+                             included some randomized content from a narrator and
+                             dealer characters, a scorecard that resembled the classic
+                             original 1950's Yahtzee scorecard, and vastly improved the
+                             display of the dice (which ended up being quite involved,
+                             as to how large multi-line dice could be displayed side-by-side
+                             in a format that's line-by-line and top-to-bottom). The end
+                             result was a pleasing and engaging experience, and a major
+                             improvement to the overall gameplay.
+                         </p>
+                         <a href="#top" id="backup"><em>back to top </em>&#8679;</a>
+                     </section>
+                 </article>
+                 <article id="content">
+                     <a name="robots"></a>
+                     <section id="heading">
+                         <h4>&#35;ForeverAlone? Not with robots!</h4>
+                         <h5>In for a penny, in for a pound... let's make things complicated!</h5>
+                     </section>
+                     <section id="image">
+                         <figure>
+                             <a target="_blank" href="images/pyahtzee_danbo.jpg">
+                                 <img src ="images/pyahtzee_danbo.jpg" alt="small Danbo robot balancing several dice" height="200" width="300" />
+                             </a>
+                             <figcaption>
+                                 &ldquo;Danbo is Balancing Some Dice&rdquo; (credit: <a target="_blank" href="http://skycaller1311.deviantart.com/">skycaller1311</a>, deviantart)<br />
+                                 <a target="_blank" href="images/pyahtzee_danbo.jpg"><em>(click to enlarge)</em></a>
+                             </figcaption>
+                         </figure>
+                     </section>
+                     <section id="body">
+                         <p>
+                             At the onset, I didn't realize how difficult creating a
+                             computer opponent would be, even in a game with straightforward
+                             rules such as Yahtzee. The initial version of the &ldquo;robot&rdquo;
+                             would randomly select a scoring option, on any one of it's rolls
+                             (also chosen at random). However, after watching the computer
+                             pass up high rolls several times (due to the utter randomness
+                             of it's selection), I realized that this was a
+                             less-than-desirable solution.
+                         </p>
+                         <p>
+                             While doing some research, I found two separate papers written by
+                             computer scientists Tom Berhoeff and James Glenn, detailing
+                             something called the &ldquo;Greed Strategy&rdquo;. This particular
+                             strategy allows a player to ascertain -- using a combination of probability
+                             and availability -- the best possible option for any given roll.
+                             Using a portion of their information as a guide (regarding scoring
+                             odds), I incorporated a system of loops for the robot to keep track
+                             of the availability of scoring options and the given dice, to select
+                             the best option between re-rolling or scoring on any roll. While not
+                             perfect, the computer can now best me ~60% of games played, which is
+                             significantly better than a player of average skill.
+                         </p>
+                     </section>
+                     <a href="#top" id="backup"><em>back to top </em>&#8679;</a>
+                 </article>
+                 <article id="content">
+                     <a name="tweaks"></a>
+                     <section id="heading">
+                         <h4>Tweaking the Theory</h4>
+                         <h5>To Build a Better Robot</h5>
+                     </section>
+                     <section id="image">
+                         <figure>
+                             <a target="_blank" href="images/pyahtzee_robo-dice.jpg">
+                                 <img src ="images/pyahtzee_robo-dice.jpg" alt="a small robot stacking dice" height="200" width="300" />
+                             </a>
+                             <figcaption>
+                                 A better robot competitor? Things could get dicey. =)<br />
+                                 <a target="_blank" href="images/pyahtzee_robo-dice.jpg"><em>(click to enlarge)</em></a>
+                             </figcaption>
+                         </figure>
+                     </section>
+                     <section id="body">
+                         <p>
+                             While the &ldquo;robot&rdquo; plays well enough at this point,
+                             it can be greatly improved. Even though Yahtzee is a game
+                             based in both chance and skill, the computer's ability to
+                             leverage the skill factor can be increased by several magnitudes.
+                             For the next version, I will completely overhaul the current
+                             decision processes that the computer uses, so that it's choices
+                             will be based on both actual probability <em>and</em> availability,
+                             per roll, instead of just a portion of the Greed Strategy and slot/scoring
+                             availability. This upgrade should increase the robot's ability
+                             to play smarter, make better scoring and roll decisions, and to
+                             win at least 70% of the time it plays, if not more.
+                         </p>
+                         <p>
+                             Naturally, there will also need to be levels of ability incorporated
+                             into the process (such as &ldquo;Easy&rdquo;, &ldquo;Advanced&rdquo;,
+                             and &ldquo;Expert&rdquo;) -- no one would want to play if a competitor
+                             is unbeatable, and can best them every single time. With an opponent
+                             skill choice factored in, human players of various skill levels could
+                             have an opponent that best matches thier own skill, providing an
+                             enjoyable experience for all.
+                         </p>
+                     </section>
+                     <a href="#top" id="backup"><em>back to top </em>&#8679;</a>
+                 </article>
+                 <article id="content">
+                     <a name="conclusion"></a>
+                     <section id="heading">
+                         <h4>Conclusion</h4>
+                         <h5>Let Me Explain... No, There Is Too Much; Let Me Sum Up.</h5>
+                     </section>
+                     <section id="image">
+                         <figure>
+                             <a target="_blank" href="images/pyahtzee_conclude.jpg">
+                                 <img src ="images/pyahtzee_conclude.jpg" alt="screenshot of Pyahtzee splash screen" height="200" width="300" />
+                             </a>
+                             <figcaption>
+                                 If you build it, no one can come...<br />
+                                 <a target="_blank" href="images/pyahtzee_conclude.jpg"><em>(click to enlarge)</em></a>
+                             </figcaption>
+                         </figure>
+                     </section>
+                     <section id="body">
+                         <p>
+                             The Pyahtzee project has been a great learning experience
+                             so far. It has allowed me to dive into Python, head-first,
+                             and push myself and my knowledge. I've experimented with
+                             many new things while working on this project, and have
+                             worked with code in a way I haven't been able to in a long time.
+                             I'm looking forward to continuing my work on the project,
+                             and to continue making Pyahtzee a better game with each version.
+                         </p>
+                         <p>
+                             The one drawback, however, is a major issue I realized about
+                             half-way into the project; I can't share this project with anyone,
+                             outside of screen shots. While the game is fully functional,
+                             looks great for a text-based Terminal game and it plays well,
+                             Yahtzee is a copyrighted property, owned by the Hasbro Company.
+                             I will never be able to release it, share my code, have others
+                             play the game, or really even show it to anyone outside of these
+                             educational-based screen shots. This was only created as
+                             a learning tool for myself, and I have no intent or desire
+                             to break the law, or to infringe on Hasbro's rights. So I
+                             think my next project will be something original, or
+                             one that is in the Public Domain or an Open Source project.
+                         </p>
+                     </section>
+                     <a href="#top" id="backup"><em>back to top </em>&#8679;</a>
+                 </article>
+                 <hr align="center" width="90%" />
+                 <section id="content2">
+                     <a name="screens"></a>
+                     <section id="heading">
+                         <h2>Pyahtzee! Screen Shots</h2>
+                     </section>
+                     <section id="screenpen">
+                         <section id="image">
+                             <figure id="screenimg">
+                                 <a target="_blank" href="images/pyahtzee_splash01.jpg">
+                                     <img src ="images/pyahtzee_splash00.jpg" alt="Pyahtzee Splash Screen" height="100" width="200" border="1" />
+                                 </a>
+                                 <figcaption>
+                                     Splash Screen<br />
+                                     <a target="_blank" href="images/pyahtzee_splash01.jpg"><em>(click to enlarge)</em></a>
+                                 </figcaption>
+                             </figure>
+                         </section>
+                         <section id="image">
+                             <figure id="screenimg">
+                                 <a target="_blank" href="images/pyahtzee_story01.jpg">
+                                     <img src ="images/pyahtzee_story00.jpg" alt="Pyahtzee Storyline" height="100" width="200" border="1" />
+                                 </a>
+                                 <figcaption>
+                                     Opening Storyline<br />
+                                     <a target="_blank" href="images/pyahtzee_story01.jpg"><em>(click to enlarge)</em></a>
+                                 </figcaption>
+                             </figure>
+                         </section>
+                         <section id="image">
+                             <figure id="screenimg">
+                                 <a target="_blank" href="images/pyahtzee_banner-dice01.jpg">
+                                     <img src ="images/pyahtzee_banner00.jpg" alt="Pyahtzee Player Banner" height="100" width="200" border="1" />
+                                 </a>
+                                 <figcaption>
+                                     Current Player Banner<br />
+                                     <a target="_blank" href="images/pyahtzee_banner-dice01.jpg"><em>(click to enlarge)</em></a>
+                                 </figcaption>
+                             </figure>
+                         </section>
+                         <section id="image">
+                             <figure id="screenimg">
+                                 <a target="_blank" href="images/pyahtzee_banner-dice01.jpg">
+                                     <img src ="images/pyahtzee_score00.jpg" alt="Pyahtzee Scoring Options" height="100" width="200" border="1" />
+                                 </a>
+                                 <figcaption>
+                                     Scoring Options<br />
+                                     <a target="_blank" href="images/pyahtzee_banner-dice01.jpg"><em>(click to enlarge)</em></a>
+                                 </figcaption>
+                             </figure>
+                         </section>
+                         <section id="image">
+                             <figure id="screenimg">
+                                 <a target="_blank" href="images/pyahtzee_card01.jpg">
+                                     <img src ="images/pyahtzee_card00.jpg" alt="Pyahtzee Scorecard" height="100" width="200" border="1" />
+                                 </a>
+                                 <figcaption>
+                                     Scorecard<br />
+                                     <a target="_blank" href="images/pyahtzee_card01.jpg"><em>(click to enlarge)</em></a>
+                                 </figcaption>
+                             </figure>
+                         </section>
+                         <section id="image">
+                             <figure id="screenimg">
+                                 <a target="_blank" href="images/pyahtzee_banner-dice01.jpg">
+                                     <img src ="images/pyahtzee_dice00.jpg" alt="Pyahtzee Dice Display" height="100" width="200" border="1" />
+                                 </a>
+                                 <figcaption>
+                                     Dice Display<br />
+                                     <a target="_blank" href="images/pyahtzee_banner-dice01.jpg"><em>(click to enlarge)</em></a>
+                                 </figcaption>
+                             </figure>
+                         </section>
+                         <section id="image">
+                             <figure id="screenimg">
+                                 <a target="_blank" href="images/pyahtzee_joker01.jpg">
+                                     <img src ="images/pyahtzee_joker00.jpg" alt="Pyahtzee Joker Lock" height="100" width="200" border="1" />
+                                 </a>
+                                 <figcaption>
+                                     Joker Rules Lock in Action<br />
+                                     <a target="_blank" href="images/pyahtzee_joker01.jpg"><em>(click to enlarge)</em></a>
+                                 </figcaption>
+                             </figure>
+                         </section>
+                     </section>
                  </section>
-                 <section id="image">
-                     <figure>
-                         <a target="_blank" href="images/pyahtzee_yahtzee.jpg">
-                             <img src ="images/pyahtzee_yahtzee.jpg" alt="the Deluxe Edition Yahtzee game" height="200" width="200" />
-                         </a>
-                         <figcaption>
-                             Deluxe Edition Yahtzee, by Milton Bradley <br />
-                             <a target="_blank" href="images/pyahtzee_yahtzee.jpg"><em>(click to enlarge)</em></a>
-                         </figcaption>
-                     </figure>
-                 </section>
-                 <section id="body">
-                     <p>
-                         Over the winter break from classes, I wanted to make sure
-                         that my newly-learned Python skills didn't begin to fade.
-                         I started looking for a project that I could work
-                         on, outside of testing my abilities with code snippets on the
-                         <a target="_blank" href="http://www.hackerrank.com">HackerRank</a>
-                        website. While HackerRank was definitly keeping my skills honed, I
-                        really wanted something with more substance, cohesion and complexity;
-                        I needed to see if I could code something complete, from the ground up...
-                        a useful, functional programming project that I could work on, and yet
-                        still complete within the given timeframe.
-                    </p>
-                    <p>
-                        To better understand the core functionality of Python, it needed
-                        to be something that could be created using the basic, out-of-the-box
-                        install of the Python language (or as close to it as possible),
-                        without a lot of added plugins or external modules to cut corners.
-                        I wanted to use my new skills to create something complex, but not
-                        necesarily dive straight into the deep water too fast, and start drowning.
-                        I was looking for a project or subject matter that was familiar and
-                        that I knew well; something that would alow me to focus on learning
-                        the language, not also learning about the subject matter of <em>what</em>
-                        the code was doing... and that's when I saw a Yahtzee box
-                        sitting on the counter.
-                     </p>
-                     <a href="#top"><em>back to top</em></a>
-                 </section>
-             </article>
-             <article id="chapter">
-                 <a name="basics"></a>
-                 <section id="heading">
-                     <h4>Gameplay Basics</h4>
-                     <h5>Or, How Does One Yahtzee?</h5>
-                 </section>
-                 <section id="image">
-                     <figure>
-                         <a target="_blank" href="images/pyahtzee_scorecard.jpg">
-                             <img src ="images/pyahtzee_scorecard.jpg" alt="original 1956 Yahtzee scorecard" height="200" width="300" />
-                         </a>
-                         <figcaption>
-                             An original 1956 Milton-Bradley Yahtzee scorecard<br />
-                             <a target="_blank" href="images/pyahtzee_scorecard.jpg"><em>(click to enlarge)</em></a>
-                         </figcaption>
-                     </figure>
-                 </section>
-                 <section id="body">
-                     <p>
-                         I took out the game and played through several rounds,
-                         taking notes on basic strategy, gameplay, turn formats, and
-                         any other information I felt would be pertinent to converting
-                         the physical game into a computerized version. I also did
-                         some research online regarding the game's history and various
-                         different versions over the years, as well as researching
-                         the most recent rules for playing the game (which, I learned,
-                         are quite different from the original rules I grew up playing).
-                     </p>
-                     <p>
-                         Once I had all the notes gathered, I began outlining the
-                         structure of how the program would function. I applied the same
-                         cyclical technique that I use for art, design and writing (as well
-                         as coding in BASIC, AppleScript, HTML, et al) that I often refer
-                         to as &ldquo;going Bob Ross&rdquo;; start as simple as possible, and then build,
-                         enhance and elaborate, cycling over the project again and again,
-                         continuing to make it better with each iteration.
-                     </p>
-                     <a href="#top"><em>back to top</em></a>
-                 </section>
-             </article>
-             <article id="chapter">
-                 <a name="core"></a>
-                 <section id="heading">
-                     <h4>Core Functionality</h4>
-                     <h5>Build a Solid Foundation to Work On</h5>
-                 </section>
-                 <section id="image">
-                     <figure>
-                         <a target="_blank" href="images/pyahtzee_code01.jpg">
-                             <img src ="images/pyahtzee_code01.jpg" alt="a snippet of Python code" height="200" width="300" />
-                         </a>
-                         <figcaption>
-                             Initial functions created to roll and count dice<br />
-                             <a target="_blank" href="images/pyahtzee_code01.jpg"><em>(click to enlarge)</em></a>
-                         </figcaption>
-                     </figure>
-                 </section>
-                 <section id="body">
-                     <p>
-                         Starting with the existing scoring structure, I created a
-                         basic one-roll game for one player; they were allowed
-                         one roll of all five dice, which would return a score
-                         for whatever might be available for the given dice.
-                         Once that was in place and functioning properly, I then
-                         extended the option to allow for multiple rolls of all
-                         of the dice. After that came the addition for re-rolling
-                         only certain player-selected dice out of each roll, on the first
-                         and second throws, like the actual game. With success in creating
-                         that functionality also came the the task of adding the
-                         (somewhat complicated) &ldquo;Joker Rules&rdquo; to the game,
-                         which only come into play if multiple Yahtzee's are rolled during
-                         a game, or if a zero score is taken in the Yahtzee slot, and then
-                         a Yahtzee is rolled by that player.
-                     </p>
-                     <p>
-                         With that core functionality in place, the entire game could be played,
-                         by one person -- from beginning to end -- while completely following
-                         the current Yahtzee rules and scoring system. I was then able able to
-                         easily replicate the process, extending the existing gameplay to
-                         four possible players at a time, and allowed each player to enter
-                         their name (as opposed to just being given the generic &ldquo;Player 1&rdquo;,
-                         &ldquo;Player 2&rdquo; monikers).
-                    </p>
-                    <a href="#top"><em>back to top</em></a>
-                 </section>
-             </article>
-             <article id="chapter">
-                 <a name="enhancements"></a>
-                 <section id="heading">
-                     <h4>Gameplay &amp; Interface Enhancements</h4>
-                     <h5>Yay, it Works! Um... Now What?</h5>
-                 </section>
-                 <section id="image">
-                     <figure>
-                         <a target="_blank" href="images/pyahtzee_score-dice.jpg">
-                             <img src ="images/pyahtzee_score-dice.jpg" alt="detail of ASCII dice design" height="200" width="300" />
-                         </a>
-                         <figcaption>
-                             Detail of ASCII dice design, dice selection and scoring<br />
-                             <a target="_blank" href="images/pyahtzee_score-dice.jpg"><em>(click to enlarge)</em></a>
-                         </figcaption>
-                     </figure>
-                 </section>
-                 <section id="body">
-                     <p>
-                         Once the gameplay was tested and bugs were removed, I
-                         realized that I really wanted to improve the interface.
-                         Initially, I felt somewhat hamstrung by the limitations
-                         of the Terminal, and the lack of graphical capabilities
-                         in a text-based format. However, I quickly realized that --
-                         by using ASCII symbols and some storytelling -- I could
-                         create a fun and enjoyable player experience, with some
-                         minimalist visuals thrown in.
-                     </p>
-                     <p>
-                         After earching through the available ASCII characters and
-                         possible text formatting, I went through the game once
-                         more, step by step, to see where the experience could be
-                         enhanced. I created a splashscreen for the game, a storyline
-                         that included some randomized content from the narrator
-                         and the dealer, a scorecard that resembled the classic
-                         original 1950's Yahtzee scorecard, and vastly improved the
-                         display of the dice (which involved some serious planning
-                         and forethought, as to how large multi-line dice could be
-                         displayed side-by-side in a line-by-line, top-to-bottom
-                         text-based format). The end result was a pleasing and
-                         engaging experience and a vast improvement to the
-                         overall gameplay.
-                     </p>
-                     <a href="#top"><em>back to top</em></a>
-                 </section>
-             </article>
-             <article id="chapter">
-                 <a name="robots"></a>
-                 <section id="heading">
-                     <h4>&#35;ForeverAlone? Not with robots!</h4>
-                     <h5>In for a penny, in for a pound... let's make things complicated!</h5>
-                 </section>
-                 <section id="image">
-                     <figure>
-                         <a target="_blank" href="images/pyahtzee_robo-dice.jpg">
-                             <img src ="images/pyahtzee_robo-dice.jpg" alt="a small robot stacking dice" height="200" width="300" />
-                         </a>
-                         <figcaption>
-                             A robot competitor? Things could get dicey.<br />
-                             <a target="_blank" href="images/pyahtzee_robo-dice.jpg"><em>(click to enlarge)</em></a>
-                         </figcaption>
-                     </figure>
-                 </section>
-                 <section id="body">
-                     <p>
-                         When I decided to incorporate a computer opponent, I don't think
-                         I truly appreciated how difficult an undertaking that would be,
-                         even in a game with straightforward rules such as Yahtzee. The
-                         initial version of the computer opponent would select a random
-                         available score slot on one of the three rolls (also chosen at random)...
-                         however, after watching the computer pass up high rolls several times, due to
-                         the utter randomness of the selection setup, I realized that this
-                         was a less-than-desirable solution.
-                     </p>
-                     <p>
-                         After doing some research, I found two separate dissertations written by
-                         computer scientists Tom Berhoeff and James Glenn, which detailed
-                         something referred to as the &ldquo;Greed Strategy&rdquo;. This particular
-                         strategy allows a player to ascertain -- using a combination of probability
-                         and availability -- the best possible option for any given roll
-                         during a game. Using a portion of their information as a guide
-                         (regarding scoring liklihood and odds), I incorporated a system of looped checks
-                         that the robot uses, on every roll, to keep track of the availability
-                         of scoring options and the given dice, to select the best option between
-                         re-rolling or scoring on any roll. While not perfect, the computer can now
-                         best me ~60% of games played, which is significantly better than a player
-                         of average skill.
-                     </p>
-                 </section>
-                 <a href="#top"><em>back to top</em></a>
-             </article>
-             <article id="chapter">
-                 <a name="tweaks"></a>
-                 <section id="heading">
-                     <h4>Tweaking the Theory</h4>
-                     <h5>To Build a Better Robot</h5>
-                 </section>
-                 <section id="image">
-                     <figure>
-                         <a target="_blank" href="images/pyahtzee_danbo.jpg">
-                             <img src ="images/pyahtzee_danbo.jpg" alt="small Danbo robot balancing several dice" height="200" width="300" />
-                         </a>
-                         <figcaption>
-                             &ldquo;Danbo is Balancing Some Dice&rdquo; (credit: <a target="_blank" href="http://skycaller1311.deviantart.com/">skycaller1311</a>, deviantart)<br />
-                             <a target="_blank" href="images/pyahtzee_danbo.jpg"><em>(click to enlarge)</em></a>
-                         </figcaption>
-                     </figure>
-                 </section>
-                 <section id="body">
-                     <p>
-                         While the &ldquo;robot&rdquo; plays well enough at this point,
-                         it can be greatly improved. Even though Yahtzee is a game
-                         based in both chance and skill, the computer's ability to
-                         leverage the skill factor will be increased by several magnitudes.
-                         For the next version, I will completely overhaul the current
-                         decision processes that the computer uses, so that it's choices
-                         will be based on both actual probability <em>and</em> availability,
-                         per roll, instead of just the Greed strategy and slot/scoring
-                         availability. This upgrade should increase the robot's ability
-                         to play smarter, make better scoring and roll decisions, and to
-                         win at least 70% of the time it plays, if not more.
-                     </p>
-                     <p>
-                         Naturally, there will also need to be levels of ability incorporated
-                         into the process (such as &ldquo;Easy&rdquo;, &ldquo;Advanced&rdquo;,
-                         and &ldquo;Expert&rdquo;) -- no one will want to play if the computer
-                         in unbeatable, and bests them every single time. With an opponent
-                         skill choice factored in, human players of various skill levels can
-                         have an opponent that best matches thier own skill, providing an
-                         enjoyable experience for all.
-                     </p>
-                 </section>
-                 <a href="#top"><em>back to top</em></a>
-             </article>
-             <article id="chapter">
-                 <a name="conclusion"></a>
-                 <section id="heading">
-                     <h4>Conclusion</h4>
-                     <h5>Let Me Explain. No, There Is Too Much. Let Me Sum Up.</h5>
-                 </section>
-                 <section id="image">
-                     <figure>
-                         <a target="_blank" href="images/pyahtzee_conclude.jpg">
-                             <img src ="images/pyahtzee_conclude.jpg" alt="screenshot of Pyahtzee splash screen" height="200" width="300" />
-                         </a>
-                         <figcaption>
-                             Caption to the image<br />
-                             <a target="_blank" href="images/pyahtzee_conclude.jpg"><em>(click to enlarge)</em></a>
-                         </figcaption>
-                     </figure>
-                 </section>
-                 <section id="body">
-                     <p>
-                         The Pyahtzee project has been a great learning experience
-                         so far. It has allowed me to dive into Python, head-first,
-                         and push myself and my knowledge. I've experimented with
-                         many new things while working on this project, and have
-                         worked with code in a way I haven't been able to in a long time.
-                         I'm looking forward to continuing my work on the project,
-                         and to continue making Pyahtzee a better game with each version.
-                     </p>
-                     <p>
-                         The one and only drawback, however, is a not-so-small issue
-                         I realized about half-way into the project; I can't share
-                         this project with anyone, outside of screen shots. While
-                         the game might be fully functional, looks great for a text-based
-                         Terminal game and it plays well, Yahtzee is a copyrighted
-                         entity, owned by the Hasbro Company. I will never be able
-                         to release it, share my code, have others play the finished
-                         game, or really even show it to anyone outside of these
-                         educational-based screen shots. This was only created as
-                         a learning tool for myself, and I have no intent or desire
-                         to break the law, or to infringe on Hasbro's rights.
-                     </p>
-                     <p>
-                         Maybe my next project should be a Public Domain or an existing Open Source project. =)
-                     </p>
-                 </section>
-                 <a href="#top"><em>back to top</em></a>
-             </article>
-             <hr width="80%" />
-             <a name="screens"></a>
-             <h2>Pyahtzee! Screen Shots</h2>
-             <div class="slides">
-                 <section id="image">
-                     <figure>
-                         <a target="_blank" href="images/pyahtzee_splash01.jpg">
-                             <img src ="images/pyahtzee_splash00.jpg" alt="Pyahtzee Splash Screen" height="100" width="200" border="1" />
-                         </a>
-                         <figcaption>
-                             Splash Screen<br />
-                             <a target="_blank" href="images/pyahtzee_splash01.jpg"><em>(click to enlarge)</em></a>
-                         </figcaption>
-                     </figure>
-                 </section>
-             </div>
-             <div class="slides">
-                 <section id="image">
-                     <figure>
-                         <a target="_blank" href="images/pyahtzee_story01.jpg">
-                             <img src ="images/pyahtzee_story00.jpg" alt="Pyahtzee Storyline" height="100" width="200" border="1" />
-                         </a>
-                         <figcaption>
-                             Opening Storyline<br />
-                             <a target="_blank" href="images/pyahtzee_story01.jpg"><em>(click to enlarge)</em></a>
-                         </figcaption>
-                     </figure>
-                 </section>
-             </div>
-             <div class="slides">
-                 <section id="image">
-                     <figure>
-                         <a target="_blank" href="images/pyahtzee_banner-dice01.jpg">
-                             <img src ="images/pyahtzee_banner00.jpg" alt="Pyahtzee Player Banner" height="100" width="200" border="1" />
-                         </a>
-                         <figcaption>
-                             Current Player Banner<br />
-                             <a target="_blank" href="images/pyahtzee_banner-dice01.jpg"><em>(click to enlarge)</em></a>
-                         </figcaption>
-                     </figure>
-                 </section>
-             </div>
-             <div class="slides">
-                 <section id="image">
-                     <figure>
-                         <a target="_blank" href="images/pyahtzee_banner-dice01.jpg">
-                             <img src ="images/pyahtzee_score00.jpg" alt="Pyahtzee Scoring Options" height="100" width="200" border="1" />
-                         </a>
-                         <figcaption>
-                             Scoring Options<br />
-                             <a target="_blank" href="images/pyahtzee_banner-dice01.jpg"><em>(click to enlarge)</em></a>
-                         </figcaption>
-                     </figure>
-                 </section>
-             </div>
-             <div class="slides">
-                 <section id="image">
-                     <figure>
-                         <a target="_blank" href="images/pyahtzee_card01.jpg">
-                             <img src ="images/pyahtzee_card00.jpg" alt="Pyahtzee Scorecard" height="100" width="200" border="1" />
-                         </a>
-                         <figcaption>
-                             Scorecard<br />
-                             <a target="_blank" href="images/pyahtzee_card01.jpg"><em>(click to enlarge)</em></a>
-                         </figcaption>
-                     </figure>
-                 </section>
-             </div>
-             <div class="slides">
-                 <section id="image">
-                     <figure>
-                         <a target="_blank" href="images/pyahtzee_banner-dice01.jpg">
-                             <img src ="images/pyahtzee_dice00.jpg" alt="Pyahtzee Dice Display" height="100" width="200" border="1" />
-                         </a>
-                         <figcaption>
-                             Dice Display<br />
-                             <a target="_blank" href="images/pyahtzee_banner-dice01.jpg"><em>(click to enlarge)</em></a>
-                         </figcaption>
-                     </figure>
-                 </section>
-             </div>
-             <div class="slides">
-                 <section id="image">
-                     <figure>
-                         <a target="_blank" href="images/pyahtzee_joker01.jpg">
-                             <img src ="images/pyahtzee_joker00.jpg" alt="Pyahtzee Joker Lock" height="100" width="200" border="1" />
-                         </a>
-                         <figcaption>
-                             Joker Rules Lock in Action<br />
-                             <a target="_blank" href="images/pyahtzee_joker01.jpg"><em>(click to enlarge)</em></a>
-                         </figcaption>
-                     </figure>
-                 </section>
-             </div>
-             <hr width="80%" />
-        </main>
-        <footer>
-            <p>
-                <em>
+                 <hr align="center" width="90%" />
+            </main>
+            <footer id="footerwrap">
+                <p>
                     Web page and contents:<br />
-                    &copy; 2017, <a href="mailto:trevor.m@thezenorange.com">Trevor L. Masinelli</a>. All right reserved.
-                </em>
-            </p>
-            <p>
-                <em>
+                    <em>&copy; 2017, <a href="mailto:trevor.m@thezenorange.com">Trevor L. Masinelli</a>. All right reserved.</em>
+                </p>
+                <p>
                     Additional copyright information:<br />
-                    Hasbro, Hasbro logo, Milton Bradley, Milton Bradley logo, Parker Brothers, Parker Brothers logo,
-                and Yahtzee are all trademarks of Hasbro, Inc. &copy; 1999 Hasbro, Inc. All rights reserved.
-                </em>
-            </p>
-        </footer>
+                    <em>&copy; 1999 Hasbro, Inc. All rights reserved.<br />Hasbro, Hasbro logo, Milton Bradley, Milton Bradley logo, Parker Brothers, Parker Brothers logo,
+                    and Yahtzee are all trademarks of Hasbro, Inc.</em>
+                </p>
+            </footer>
+        </section>
     </body>
 </html>
