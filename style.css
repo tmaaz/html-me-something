@@ -202,6 +202,7 @@ figcaption a:hover, #body a:hover
         border: 1px solid #000000;
         margin: 15px 43px;
         padding: 1px 15px 24px 0px;
+        box-shadow: 2px 3px 2px 2px rgba(0, 0, 0, 0.25)
     }
 
 #content2
